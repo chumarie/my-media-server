@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Player } from 'video-react';
+
 import { Media } from '@domain/models/Media';
 import { mediaService } from '@application/services/MediaService';
 import { mediaRepository } from '@infrastructure/repositories/mediaRepository';
@@ -34,9 +36,11 @@ const DetailPage = () => {
             <span>
                 { description }
             </span>
-            <video src={videoUrl} controls>
-                Your browser does not support the video tag.
-            </video>
+            <Player
+          playsInline
+          poster="http://192.168.1.5:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195"
+          src={videoUrl}
+        />
         </div>
     );
 };
