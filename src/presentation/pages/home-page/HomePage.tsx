@@ -1,58 +1,9 @@
-import { useState } from 'react';
-
-import { Cart } from '@domain/models/Cart';
-import { Product } from '@domain/models/Product';
-import { cartService } from '@application/services/CartService';
-
-import { ProductList } from './components/ProductList';
-
+import { CategoryList } from './components/CategoryList';
 
 const HomePage = () => {
-    const [cart, setCart] = useState<Cart>(cartService.createCart());
-
-    const handleAddToCart = (product: Product) => {
-        setCart(cartService.addProductToCart(cart, product));
-    };
-
-    const handleRemoveToCart = (product: Product) => {
-        setCart(cartService.removeProductFromCart(cart, product));
-    };
-
-    const renderCartProducts = (): JSX.Element[] => {
-        const cartProducts: JSX.Element[] = [];
-        let totalCart = 0;
-
-        cart.products.forEach(product => {
-            totalCart += product.price;
-            cartProducts.push(
-                <div key={product.id}>
-                    <label>{product.title} </label>
-                    <span>({product.price} €) </span>
-                    <button onClick={() => handleRemoveToCart(product)}>remove</button>
-                    <br />
-                </div>
-            );
-        });
-
-        cartProducts.push(
-            <div key={'total'}>
-                <br />
-                <label>
-                    <b>Total:</b>
-                </label>
-                <span>{totalCart} €</span>
-                <br />
-            </div>
-        );
-        return cartProducts;
-    };
-
     return (
-        <div>
-            <h1>Shopping cart</h1>
-            <h2>Products in the cart</h2>
-            {renderCartProducts()}
-            <ProductList onSelectProduct={handleAddToCart} />
+        <div className="home-page">
+            <CategoryList />
         </div>
     );
 };

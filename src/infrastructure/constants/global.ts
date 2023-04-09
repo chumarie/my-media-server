@@ -1,0 +1,1 @@
+export const EMBY_API_KEY = import.meta.env.VITE_EMBY_SERVER_API_KEY;

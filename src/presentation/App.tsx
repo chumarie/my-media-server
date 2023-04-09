@@ -1,10 +1,12 @@
-import HomePage from "@presentation/pages/home-page/HomePage";
+import AppRoutes from '@presentation/routing/AppRoutes';
+
+import './styles/global.css'
 
 
 const App = () => {
     return (
         <div>
-            <HomePage  />
+            <AppRoutes  />
         </div>
     );
 };

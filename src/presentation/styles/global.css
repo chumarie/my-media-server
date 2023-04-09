@@ -1,0 +1,16 @@
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+ul li {
+    width: 150px;
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+}
+
+ul li img {
+    height: 100%;
+}
