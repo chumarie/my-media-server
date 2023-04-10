@@ -1,7 +1,5 @@
 export interface MediaDTO {
-    id: string;
-    name: string;
-    description: string;
-    videoUrl: string;
-    
+    Id: string;
+    Name: string;
+    Overview: string;
 }

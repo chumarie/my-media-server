@@ -11,14 +11,16 @@ import { httpAxios } from '@infrastructure/instances/httpAxios';
 
 const DetailPage = () => {
     const { categoryId, itemId } = useParams();
-    const [media, setMedia] =  useState<Media[]>([]);
+    const [media, setMedia] =  useState<any>([]);
 
     const getMedia = useCallback(async () => {
         try {
             console.log('itemId', itemId)
             console.log('categoryId', categoryId)
-            const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(categoryId, itemId);
-            setMedia(responseMedia);
+            if(categoryId && itemId) {
+                const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(categoryId, itemId);
+                setMedia(responseMedia);
+            }
         } catch (exception) {
             console.error(exception);
         }
@@ -28,7 +30,7 @@ const DetailPage = () => {
         getMedia();
     }, []);
 
-    const { id, name, description, videoUrl } = media;
+    const { name, description, videoUrl } = media;
 
     return (
         <div className="category-list-page">
@@ -38,7 +40,7 @@ const DetailPage = () => {
             </span>
             <Player
           playsInline
-          poster="http://192.168.1.5:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195"
+          poster="http://192.168.1.5:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195s"
           src={videoUrl}
         />
         </div>
