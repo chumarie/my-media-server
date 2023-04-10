@@ -15,8 +15,10 @@ const CategoryListPage = () => {
 
     const getCategoryList = useCallback(async () => {
         try {
-            const responseProducts = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
-            setCategoryList(responseProducts);
+            if(categoryId) {
+                const responseProducts = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
+                setCategoryList(responseProducts);
+            }
         } catch (exception) {
             console.error(exception);
         }
