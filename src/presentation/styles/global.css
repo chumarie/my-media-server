@@ -4,7 +4,7 @@ body {
     color: #fff;
     font-family: 'Roboto Condensed', sans-serif;
 }
-ul {
+.sidebar ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -69,6 +69,8 @@ ul li img {
 
 .container {
     padding: 0 35px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .container > div {
@@ -78,9 +80,21 @@ ul li img {
 
 .container > div ul {
     display: flex;
-    flex-direction: row;
     margin: 0;
     height: 200px;
+}
+
+.container .slick-list {
+    height: 200px;
+    width: 100%;
+}
+
+.container .slick-list .slick-slide {
+}
+
+.container .slick-list img {
+    height: 200px;
+    border-radius: 20px;
 }
 
 .container > div ul li {

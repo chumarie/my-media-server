@@ -29,7 +29,7 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
     },
 
     getResumes: async () => {
-        const medias = await client.get<CategoryDTO>('Users/0702d46b75e74771aebcfbe9064b99a7/Items/Resume', { EnableImageTypes: 'Backdrop', limit: '5' });
+        const medias = await client.get<CategoryDTO>('Users/0702d46b75e74771aebcfbe9064b99a7/Items/Resume', { EnableImageTypes: 'Backdrop' });
         return medias.Items.map((categoryDto: CategoryDTO): Category => {
             return { 
                 id: categoryDto.Id, 

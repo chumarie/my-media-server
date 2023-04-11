@@ -1,8 +1,46 @@
 header {
     padding: 0 20px;
     border-bottom: 2px solid #1c1c20;
+    display: flex;
 }
 
 header img {
     width: 120px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul li {
+    height: auto;
+}
+
+header .avatar {
+    width: 40px;
+    overflow: hidden;
+}
+
+header .action-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+header .avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+header .action-header > img {
+    width: 20px;
 }
