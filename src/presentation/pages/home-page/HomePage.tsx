@@ -9,6 +9,9 @@ import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import BaseLayout from '@templates/BaseLayout/BaseLayout';
 
+
+import H2 from '@presentation/atomic-design/atoms/typography/H2';
+
 import { CategoryList } from './components/CategoryList';
 
 const HomePage = () => {
@@ -46,16 +49,14 @@ const HomePage = () => {
     slidesToScroll: 1,
   };
 
-  console.log('animationList', animationList)
-  console.log('filmList', resumeList)
     return (
         <BaseLayout>
-          <div className="sidebar">
+          <div className="w-sidebar border-r p-grid">
             <CategoryList />
           </div>
-          <div className="container">
+          <div className="container px-10 w-full">
             <div>
-              <h2>New animation</h2>
+              <H2 text='New animation' />
               <Slider {...settings}>
                 {animationList.map(animation => (
                       <li key={animation.id} onClick={() => navigate(`/category/${animation.id}/item/6`)}>
@@ -65,7 +66,7 @@ const HomePage = () => {
               </Slider>
             </div>
             <div>
-              <h2>New Films</h2>
+              <H2 text='New Films' />
               <Slider {...settings}>
                 {filmList.map(film => (
                       <li key={film.id} onClick={() => navigate(`/category/${film.id}/item/4`)}>

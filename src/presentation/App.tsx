@@ -9,9 +9,7 @@ import './styles/tailwind.css';
 
 const App = () => {
     return (
-        <div>
-            <AppRoutes  />
-        </div>
+        <AppRoutes  />
     );
 };
 

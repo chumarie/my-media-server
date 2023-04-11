@@ -7,6 +7,7 @@ import { categoryRepository } from '@infrastructure/repositories/categoryReposit
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 
 import PlayButton from '@presentation/assets/play.png';
+import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 export const CategoryList = () => {
     const [categories, setCategories] = useState<Category[]>([]);
@@ -33,20 +34,20 @@ export const CategoryList = () => {
     
     return (
         <div className="category-list-page">
-        <h2>All categories</h2>
-        <ul>
-            {categories.map(category => (
-                category.type === 'movies' && (
-                    <li key={category.id} onClick={() => navigate(`/category/${category.id}`)}>
-                            <img src={category.image}/>
-                        <div className='more-content-footer'>
-                        <img className='play-icon' src={PlayButton}/>
-                            {category.name}
-                        </div>
-                    </li>
-                )
-            ))}
-        </ul>
-    </div>
+            <H2 text="All Categories" />
+            <ul className="flex flex-col gap-3">
+                {categories.map(category => (
+                    category.type === 'movies' && (
+                        <li className="relative" key={category.id} onClick={() => navigate(`/category/${category.id}`)}>
+                                <img src={category.image}/>
+                            <div className='absolute flex b bottom-0 w-full items-center backdrop-blur gap-5 h-10 p-3'>
+                            <img className='play-icon h-full' src={PlayButton}/>
+                                {category.name}
+                            </div>
+                        </li>
+                    )
+                ))}
+            </ul>
+        </div>
     );
 };
