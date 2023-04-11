@@ -12,7 +12,7 @@ export const mediaRepository = (client: Http): MediaRepository => ({
                 id: media.Id,
                 name: media.Name,
                 description: media.Overview,
-                videoUrl: `http://192.168.1.5:8096/emby/Videos/${id}/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
+                videoUrl: `http://27.78.33.65:8096/emby/Videos/${id}/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
             }
         //));
     }

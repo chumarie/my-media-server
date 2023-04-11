@@ -6,5 +6,8 @@ export const categoryService = (repository: CategoryRepository): CategoryReposit
     },
     getCategoryById: id => {
         return repository.getCategoryById(id);
-    }
+    },
+    getResumes: () => {
+        return repository.getResumes();
+    },
 });

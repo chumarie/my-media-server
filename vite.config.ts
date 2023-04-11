@@ -13,6 +13,8 @@ export default defineConfig({
       '@presentation': path.resolve(__dirname, 'src/presentation'),
       '@mocks': path.resolve(__dirname, 'src/mocks'),
       '@tests': path.resolve(__dirname, 'src/tests'),
+      '@organisms': path.resolve(__dirname, 'src/presentation/atomic-design/organisms'),
+      '@templates': path.resolve(__dirname, 'src/presentation/atomic-design/templates')
     },
   },
 })

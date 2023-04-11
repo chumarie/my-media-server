@@ -31,7 +31,7 @@ const CategoryListPage = () => {
     return (
         <div className="category-list-page">
             <h2>List of categories</h2>
-            {/* <video src="http://192.168.1.5:8096/emby/Videos/105/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6" controls>
+            {/* <video src="http://27.78.33.65:8096/emby/Videos/105/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6" controls>
                 Your browser does not support the video tag.
             </video> */}
             <ul>

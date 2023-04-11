@@ -6,6 +6,8 @@ import { categoryService } from '@application/services/CategoryService';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 
+import PlayButton from '@presentation/assets/play.png';
+
 export const CategoryList = () => {
     const [categories, setCategories] = useState<Category[]>([]);
     
@@ -28,25 +30,23 @@ export const CategoryList = () => {
         getCategories();
     }, []);
 
-    console.log('Category', categories)
-
-
+    
     return (
-        <div>
-            <h2>List of categories</h2>
-            {/* <video src="http://192.168.1.5:8096/emby/Videos/105/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6" controls>
-                Your browser does not support the video tag.
-            </video> */}
-            <ul>
-                {categories.map(category => (
-                    <li key={category.id}>
-                        <button onClick={() => navigate(`/category/${category.id}`)}>
+        <div className="category-list-page">
+        <h2>All categories</h2>
+        <ul>
+            {categories.map(category => (
+                category.type === 'movies' && (
+                    <li key={category.id} onClick={() => navigate(`/category/${category.id}`)}>
+                            <img src={category.image}/>
+                        <div className='more-content-footer'>
+                        <img className='play-icon' src={PlayButton}/>
                             {category.name}
-                        </button>
-                        <img src={category.image} />
+                        </div>
                     </li>
-                ))}
-            </ul>
-        </div>
+                )
+            ))}
+        </ul>
+    </div>
     );
 };

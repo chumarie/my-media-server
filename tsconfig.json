@@ -6,7 +6,9 @@
       "@infrastructure/*": ["src/infrastructure/*"],
       "@domain/*": ["src/domain/*"],
       "@presentation/*": ["src/presentation/*"],
-      "@mocks/*": ["src/mocks/*"]
+      "@mocks/*": ["src/mocks/*"],
+      "@organisms/*": ["src/presentation/atomic-design/organisms/*"],
+      "@templates/*": ["src/presentation/atomic-design/templates/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
