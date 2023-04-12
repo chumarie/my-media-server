@@ -5,11 +5,7 @@ const plugin = require('tailwindcss/plugin');
 
 const tekflixPlugin = plugin(
   ({ addUtilities }) => {
-    addUtilities({
-      '.container': {
-        '@apply px-20': {},
-      }
-    });
+    addUtilities({});
   },
   {
     theme: {
@@ -23,7 +19,7 @@ const tekflixPlugin = plugin(
             borderColor: {
               DEFAULT: "#1c1c20"
             },
-            width: {
+            minWidth: {
               sidebar: "330px"
             },
             spacing: { 

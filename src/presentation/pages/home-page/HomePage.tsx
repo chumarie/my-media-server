@@ -9,7 +9,6 @@ import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import BaseLayout from '@templates/BaseLayout/BaseLayout';
 
-
 import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 import { CategoryList } from './components/CategoryList';
@@ -23,15 +22,14 @@ const HomePage = () => {
 
   const getCategoryList = useCallback(async () => {
       try {
+        const responseAnimations = await categoryService(categoryRepository(httpAxios)).getCategoryById('6');
+        setAnimationList(responseAnimations);
 
-              const responseAnimations = await categoryService(categoryRepository(httpAxios)).getCategoryById('6');
-              setAnimationList(responseAnimations);
+        const responseFilms = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
+        setFilmList(responseFilms);
 
-              const responseFilms = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
-              setFilmList(responseFilms);
-
-              const responseResume = await categoryService(categoryRepository(httpAxios)).getResumes();
-              setResumeList(responseResume);
+        const responseResume = await categoryService(categoryRepository(httpAxios)).getResumes();
+        setResumeList(responseResume);
           
       } catch (exception) {
           console.error(exception);
@@ -51,10 +49,10 @@ const HomePage = () => {
 
     return (
         <BaseLayout>
-          <div className="w-sidebar border-r p-grid">
+          <div className="min-w-sidebar border-r p-grid">
             <CategoryList />
           </div>
-          <div className="container px-10 w-full">
+          <div className="px-10 w-full p-grid">
             <div>
               <H2 text='New animation' />
               <Slider {...settings}>
