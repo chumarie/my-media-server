@@ -17,7 +17,7 @@ export const mediaRepository = (client: Http): MediaRepository => ({
             logo: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${id}/Images/Logo?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
             image: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
             backgroundImage: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${id}/Images/Backdrop?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
-            videoUrl: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Videos/${id}/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
+            videoUrl: `${import.meta.env.VITE_EMBY_SERVER_API_URL}Videos/${id}/stream?static=true&allowVideoStreamCopy=true&api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
         }
     },
     
@@ -35,7 +35,7 @@ export const mediaRepository = (client: Http): MediaRepository => ({
             logo: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${Items[0]}/Images/Logo?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
             image: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${Items[0].Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
             backgroundImage: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${Items[0].Id}/Images/Backdrop?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
-            videoUrl: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Videos/${Items[0].Id}/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
+            videoUrl: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/Videos/${Items[0].Id}/stream?static=true&allowVideoStreamCopy=true&api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`
         }
     }
 });
