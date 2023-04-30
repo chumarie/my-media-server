@@ -14,7 +14,7 @@ export const SelectedFilm = () => {
 
     const getSeletedFilm = useCallback(async () => {
         try {
-            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaById('158');
+            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaById('9927');
             setSelectedFilm(responseFilm);
         } catch (exception) {
             console.error(exception);
@@ -36,12 +36,12 @@ export const SelectedFilm = () => {
             <div className='w-full overlay'>
                 <div className="px-10 pb-[150px] h-full flex flex-col justify-center">
                     <img className='w-[300px]' src={logo} />
-                    <div className="flex gap-3 mb-2">
+                    <div className="flex gap-3 mb-4">
                         <span>{production}</span>
                         <span>{tagline}</span>
                     </div>
                     <div className="flex gap-3 h-10">
-                    <WatchButton width="w-fit" className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/4/item/${selectedFilm.id}`)} label='Watch Now'/>
+                    <WatchButton width="w-fit" hasIcon={true} className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/4/item/${selectedFilm.id}`)} label='Watch Now'/>
                     </div>
                 </div>
             </div>

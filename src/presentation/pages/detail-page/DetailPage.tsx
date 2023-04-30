@@ -37,6 +37,7 @@ const DetailPage = () => {
     }
 
 
+
     const { description, production, videoUrl, logo, backgroundImage, thumb, genres, studio } = media;
     return (
         <BaseLayout>

@@ -1,50 +1,47 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-import { Category } from '@domain/models/Category';
 import { categoryService } from '@application/services/CategoryService';
+import { Category } from '@domain/models/Category';
+import { API_CATEGORY } from '@infrastructure/constants/global';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
-
+import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
+import MediaList from '@presentation/atomic-design/organisms/MediaList';
+import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 const CategoryListPage = () => {
-    const { categoryId } = useParams();
-    const [mediaList, setMediaList] =  useState<Category[]>([]);
+    const { categoryId } = useParams<string>();
+    const [mediaList, setMediaList] =  useState<Category[] | null>(null);
 
-    const navigate = useNavigate();
-
-    const getCategoryList = useCallback(async () => {
+    const getCategoryList = useCallback(async (categoryId: string | undefined) => {
         try {
-            if(categoryId) {
-                const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
-                setMediaList(responseMedia);
-            }
+            const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
+            setMediaList(responseMedia);
         } catch (exception) {
             console.error(exception);
         }
     }, []);
 
     useEffect(() => {
-        getCategoryList();
-    }, []);
+        getCategoryList(categoryId);
+    }, [categoryId]);
+
+    if(!mediaList || !categoryId) {
+        return null;
+    }
+
+    const sectionTitle = API_CATEGORY[categoryId].label;
 
     return (
-        <div className="category-list-page">
-            <h2>List of categories</h2>
-            {/* <video src="http://116.109.188.193:8096/emby/Videos/105/stream.mkv?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6" controls>
-                Your browser does not support the video tag.
-            </video> */}
-            <ul>
-                {mediaList.map(media => (
-                    <li key={media.id}>
-                        <button onClick={() => navigate(`/category/${categoryId}/item/${media.id}`)}>
-                            {media.name}
-                        </button>
-                        <img src={media.image} />
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <BaseLayout>      
+            <div className="w-full flex px-5 pt-[100px] pb-5 flex-col">
+                <div className="flex justify-center">
+                    <H2>{sectionTitle}</H2>
+                </div>
+                <MediaList items={mediaList} />
+            </div>
+        </BaseLayout>
     );
 };
 

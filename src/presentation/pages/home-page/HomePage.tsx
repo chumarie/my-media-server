@@ -16,9 +16,7 @@ const HomePage = () => {
   const sliderMovieRef = useRef();
 
   const handleMoviePrevButtonClick = () => {
-
       sliderMovieRef.current.slickPrev();
-
    };
     
   const handleMovieNextButtonClick = () => {
@@ -46,7 +44,7 @@ const HomePage = () => {
                 <SelectedFilm />
               <div className="absolute bottom-[0px] z-10 px-5">
                 <div className="section-heading flex justify-between py-5 px-0 items-center">
-                <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
+                  <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
                 </div>
                 <Slider sliderRef={sliderMovieRef} items={movieList} />
               </div>
