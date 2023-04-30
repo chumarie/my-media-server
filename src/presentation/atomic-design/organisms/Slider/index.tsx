@@ -38,7 +38,7 @@ const Slider = ({ items, sliderRef }: SliderProps) => {
                         </div>
                         <div>
                             <H3>{item.name}</H3>
-                            <WatchButton label='Watch Now' onClick={() => navigate(`/category/${item.id}/item/6`)} />
+                            <WatchButton label='Watch Now' onClick={() => navigate(`/category/6/item/${item.id}`)} />
                         </div>
                     </div>
                 </li>

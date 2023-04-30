@@ -41,7 +41,7 @@ export const SelectedFilm = () => {
                         <span>{tagline}</span>
                     </div>
                     <div className="flex gap-3 h-10">
-                    <WatchButton width="w-fit" className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/${selectedFilm.id}/item/4`)} label='Watch Now'/>
+                    <WatchButton width="w-fit" className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/4/item/${selectedFilm.id}`)} label='Watch Now'/>
                     </div>
                 </div>
             </div>

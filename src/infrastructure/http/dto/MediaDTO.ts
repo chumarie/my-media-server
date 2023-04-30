@@ -4,5 +4,6 @@ export interface MediaDTO {
     Overview: string;
     Genres: string;
     Production: string;
-    Tagline: string
+    Tagline: string;
+    Studio: string;
 }

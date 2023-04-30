@@ -7,18 +7,19 @@ import { Media } from '@domain/models/Media';
 import { mediaService } from '@application/services/MediaService';
 import { mediaRepository } from '@infrastructure/repositories/mediaRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
+import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
+import Tag from '@presentation/atomic-design/atoms/Tag';
+import H3 from '@presentation/atomic-design/atoms/typography/H3';
 
 
 const DetailPage = () => {
     const { categoryId, itemId } = useParams();
-    const [media, setMedia] =  useState<any>([]);
+    const [media, setMedia] =  useState<any>(null);
 
     const getMedia = useCallback(async () => {
         try {
-            console.log('itemId', itemId)
-            console.log('categoryId', categoryId)
             if(categoryId && itemId) {
-                const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(categoryId);
+                const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(itemId);
                 setMedia(responseMedia);
             }
         } catch (exception) {
@@ -30,21 +31,45 @@ const DetailPage = () => {
         getMedia();
     }, []);
 
-    const { name, description, videoUrl } = media;
+    if(!media) {
+        return null;
+    }
 
+
+    const { description, production, videoUrl, logo, backgroundImage, thumb, genres, studio } = media;
     return (
-        <div className="category-list-page">
-            <h2>{name}</h2>
-            <span>
-                { description }
-            </span>
-            <Player
-          playsInline
-          poster="http://116.109.188.193:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195s"
-          src={videoUrl}
-        />
-        </div>
+        <BaseLayout>
+          <div className="w-full flex">
+            <div className="flex-1 w-full h-full bg-cover" style={{ backgroundImage: `url("${backgroundImage}")` }}>
+                <div className="overlay"></div>
+                <div className="px-[120px] py-[55px] h-full z-10 relative flex gap-10 items-center">
+                    <div className="w-[60%]">
+                        <img src={logo} className="w-[400px] mb-6"/>
+                        <div className="w-[70%] text-ellipsis overflow-scroll max-h-[100px] mb-5">
+                            {description}
+                        </div>
+                        <div className="flex gap-3 mb-6">
+                            {genres.map(genre => (
+                                <Tag label={genre} />
+                            ))}
+                        </div>
+                        <div>
+                          <h3>{studio[0].Name} - {production}</h3>
+                        </div>
+                    </div>
+                    <div className="flex-1">
+                        <Player
+                            playsInline
+                            poster={thumb}
+                            src={videoUrl}
+                        />
+                    </div>
+                </div>
+            </div>
+          </div>
+        </BaseLayout>
     );
 };
+
 
 export default DetailPage;

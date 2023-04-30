@@ -9,15 +9,15 @@ import { httpAxios } from '@infrastructure/instances/httpAxios';
 
 const CategoryListPage = () => {
     const { categoryId } = useParams();
-    const [categoryList, setCategoryList] =  useState<Category[]>([]);
+    const [mediaList, setMediaList] =  useState<Category[]>([]);
 
     const navigate = useNavigate();
 
     const getCategoryList = useCallback(async () => {
         try {
             if(categoryId) {
-                const responseProducts = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
-                setCategoryList(responseProducts);
+                const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
+                setMediaList(responseMedia);
             }
         } catch (exception) {
             console.error(exception);
@@ -35,12 +35,12 @@ const CategoryListPage = () => {
                 Your browser does not support the video tag.
             </video> */}
             <ul>
-                {categoryList.map(category => (
-                    <li key={category.id}>
-                        <button onClick={() => navigate(`/category/${category.id}/item/${categoryId}`)}>
-                            {category.name}
+                {mediaList.map(media => (
+                    <li key={media.id}>
+                        <button onClick={() => navigate(`/category/${categoryId}/item/${media.id}`)}>
+                            {media.name}
                         </button>
-                        <img src={category.image} />
+                        <img src={media.image} />
                     </li>
                 ))}
             </ul>
