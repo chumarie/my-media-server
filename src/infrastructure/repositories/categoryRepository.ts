@@ -10,7 +10,7 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
             return { 
                 id: categoryDto.Id, 
                 name: categoryDto.Name,
-                image: `http://27.78.33.65:8096/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
+                image: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
                 type: categoryDto.CollectionType
             }
         });
@@ -22,7 +22,7 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
             { 
                 id: categoryDto.Id,
                 name: categoryDto.Name,
-                image: `http://27.78.33.65:8096/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
+                image: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
                 type: categoryDto.CollectionType
             }
         ));
@@ -34,7 +34,7 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
             return { 
                 id: categoryDto.Id, 
                 name: categoryDto.Name,
-                image: `http://27.78.33.65:8096/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
+                image: `${import.meta.env.VITE_EMBY_SERVER_API_URL}/emby/Items/${categoryDto.Id}/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6`,
                 type: categoryDto.CollectionType
             }
         });

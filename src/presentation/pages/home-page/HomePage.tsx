@@ -1,35 +1,47 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import Slider from 'react-slick';
 
 import { categoryService } from '@application/services/CategoryService';
 import { Category } from '@domain/models/Category';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
+import H2 from '@presentation/atomic-design/atoms/typography/H2';
+import Slider from '@presentation/atomic-design/organisms/Slider';
 import BaseLayout from '@templates/BaseLayout/BaseLayout';
 
-import H2 from '@presentation/atomic-design/atoms/typography/H2';
-
-import { CategoryList } from './components/CategoryList';
+import { SelectedFilm } from './components/SelectedFilm';
+import ButtonWrapper from '@presentation/atomic-design/molecules/ButtonWrapper';
 
 const HomePage = () => {
   const [animationList, setAnimationList] =  useState<Category[]>([]);
-  const [filmList, setFilmList] =  useState<Category[]>([]);
-  const [resumeList, setResumeList] =  useState<Category[]>([]);
+  const [movieList, setMovieList] =  useState<Category[]>([]);
 
-  const navigate = useNavigate();
+  const sliderAnimationRef = useRef();
+  const sliderMovieRef = useRef();
 
-  const getCategoryList = useCallback(async () => {
+  const handleAnimationPrevButtonClick = () => {
+    sliderAnimationRef.current.slickPrev();
+   };
+    
+  const handleAnimationNextButtonClick = () => {
+    sliderAnimationRef.current.slickNext();
+  };
+
+  const handleMoviePrevButtonClick = () => {
+    sliderMovieRef.current.slickPrev();
+   };
+    
+  const handleMovieNextButtonClick = () => {
+    sliderMovieRef.current.slickNext();
+  };
+
+  const getDataList = useCallback(async () => {
       try {
         const responseAnimations = await categoryService(categoryRepository(httpAxios)).getCategoryById('6');
         setAnimationList(responseAnimations);
 
-        const responseFilms = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
-        setFilmList(responseFilms);
-
-        const responseResume = await categoryService(categoryRepository(httpAxios)).getResumes();
-        setResumeList(responseResume);
+        const responseMovies = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
+        setMovieList(responseMovies);
           
       } catch (exception) {
           console.error(exception);
@@ -37,42 +49,33 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-      getCategoryList();
+    getDataList();
   }, []);
-
-  const settings = {
-    speed: 500,
-    infinite: true,
-    slidesToShow: 7,
-    slidesToScroll: 1,
-  };
 
     return (
         <BaseLayout>
-          <div className="min-w-sidebar border-r p-grid">
-            <CategoryList />
-          </div>
-          <div className="px-10 w-full p-grid">
-            <div>
-              <H2 text='New animation' />
-              <Slider {...settings}>
-                {animationList.map(animation => (
-                      <li key={animation.id} onClick={() => navigate(`/category/${animation.id}/item/6`)}>
-                          <img src={animation.image} />
-                      </li>
-                  ))}
-              </Slider>
+          <div className="w-full flex">
+            <div className="p-grid w-[80%] overflow-scroll">
+              <div>
+                <img className="rounded-2xl" src="https://dx35vtwkllhj9.cloudfront.net/universalstudios/super-mario-bros/images/gallery/posterimage1.jpg" />
+              </div>
+              <div>
+                <div className="section-heading flex justify-between py-5 px-0 items-center">
+                  <H2>Recently released animations</H2>
+                  <ButtonWrapper onPrevButtonClick={handleAnimationPrevButtonClick} onNextButtonClick={handleAnimationNextButtonClick} />
+                </div>
+                <Slider sliderRef={sliderAnimationRef} items={animationList} />
+              </div>
+              <div>
+                <div className="section-heading flex justify-between items-center py-5 px-0">
+                  <H2>Recently added movies</H2>
+                  <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
+                </div>
+                <Slider sliderRef={sliderMovieRef} items={movieList} />
+              </div>
+              
             </div>
-            <div>
-              <H2 text='New Films' />
-              <Slider {...settings}>
-                {filmList.map(film => (
-                      <li key={film.id} onClick={() => navigate(`/category/${film.id}/item/4`)}>
-                          <img src={film.image} />
-                      </li>
-                ))}
-              </Slider>
-            </div>
+            <SelectedFilm />
           </div>
         </BaseLayout>
 

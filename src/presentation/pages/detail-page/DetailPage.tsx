@@ -40,7 +40,7 @@ const DetailPage = () => {
             </span>
             <Player
           playsInline
-          poster="http://27.78.33.65:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195s"
+          poster="http://116.109.188.193:8096/emby/Items/6/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6&ParentId=3195s"
           src={videoUrl}
         />
         </div>
