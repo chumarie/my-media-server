@@ -2,20 +2,19 @@ import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Player } from 'video-react';
-import ReactPlayer from 'react-player'
 
-import { Media } from '@domain/models/Media';
 import { mediaService } from '@application/services/MediaService';
+import { Media } from '@domain/models/Media';
 import { mediaRepository } from '@infrastructure/repositories/mediaRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
 import Tag from '@presentation/atomic-design/atoms/Tag';
-import H3 from '@presentation/atomic-design/atoms/typography/H3';
+
 
 
 const DetailPage = () => {
     const { categoryId, itemId } = useParams();
-    const [media, setMedia] = useState<any>(null);
+    const [media, setMedia] = useState<Media | null>(null);
 
     const getMedia = useCallback(async () => {
         try {
@@ -35,8 +34,6 @@ const DetailPage = () => {
     if (!media) {
         return null;
     }
-
-
 
     const { description, production, videoUrl, logo, backgroundImage, thumb, genres, studio } = media;
     return (

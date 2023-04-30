@@ -9,5 +9,7 @@ export type Media = {
     logo: string;
     genres: Array<string>;
     tagline: string;
-    studio: string;
+    studio: any;
+    thumb: string;
 };
+

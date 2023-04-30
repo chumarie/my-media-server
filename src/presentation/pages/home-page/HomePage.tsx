@@ -13,7 +13,7 @@ import { SelectedFilm } from './components/SelectedFilm';
 const HomePage = () => {
   const [movieList, setMovieList] =  useState<Category[]>([]);
 
-  const sliderMovieRef = useRef();
+  const sliderMovieRef = useRef<any>(null);
 
   const handleMoviePrevButtonClick = () => {
       sliderMovieRef.current.slickPrev();

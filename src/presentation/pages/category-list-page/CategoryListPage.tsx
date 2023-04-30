@@ -16,8 +16,10 @@ const CategoryListPage = () => {
 
     const getCategoryList = useCallback(async (categoryId: string | undefined) => {
         try {
-            const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
-            setMediaList(responseMedia);
+            if(categoryId) {
+                const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
+                setMediaList(responseMedia);
+            }
         } catch (exception) {
             console.error(exception);
         }
