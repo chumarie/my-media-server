@@ -9,6 +9,7 @@ const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
     "x-requested-with": "XMLHttpRequest",
+    "origin": "https://644ed93975b34800075df75d--bejewelled-sawine-162296.netlify.app/",
   },
 });
 
