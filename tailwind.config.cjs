@@ -16,7 +16,8 @@ const tekflixPlugin = plugin(
         padding: '15px 15px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        zIndex: 1
       }
     });
   },

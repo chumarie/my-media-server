@@ -12,7 +12,7 @@ interface ButtonWrapperProps {
 
     //console.log("onPrevButtonClick", onPrevButtonClick);
       return (
-          <div className="flex gap-4 h-[15px]">
+          <div className="flex justify-between w-full h-[15px]">
             <img src={prevIcon} onClick={onPrevButtonClick}/>
             <img src={nextIcon} onClick={onNextButtonClick} />
           </div>

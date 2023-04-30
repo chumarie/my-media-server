@@ -55,27 +55,15 @@ const HomePage = () => {
     return (
         <BaseLayout>
           <div className="w-full flex">
-            <div className="p-grid w-[80%] overflow-scroll">
-              <div>
-                <img className="rounded-2xl" src="https://dx35vtwkllhj9.cloudfront.net/universalstudios/super-mario-bros/images/gallery/posterimage1.jpg" />
-              </div>
-              <div>
+            <div className="flex-1">
+                <SelectedFilm />
+              <div className="absolute bottom-[0px] z-10 px-5">
                 <div className="section-heading flex justify-between py-5 px-0 items-center">
-                  <H2>Recently released animations</H2>
-                  <ButtonWrapper onPrevButtonClick={handleAnimationPrevButtonClick} onNextButtonClick={handleAnimationNextButtonClick} />
-                </div>
-                <Slider sliderRef={sliderAnimationRef} items={animationList} />
-              </div>
-              <div>
-                <div className="section-heading flex justify-between items-center py-5 px-0">
-                  <H2>Recently added movies</H2>
-                  <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
+                <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
                 </div>
                 <Slider sliderRef={sliderMovieRef} items={movieList} />
               </div>
-              
-            </div>
-            <SelectedFilm />
+            </div> 
           </div>
         </BaseLayout>
 

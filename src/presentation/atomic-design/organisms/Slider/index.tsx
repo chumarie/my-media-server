@@ -17,8 +17,11 @@ const settings = {
     arrows: false,
     infinite: true,
     slidesToShow: 7,
-    slidesToScroll: 1,
-    slideMargin: 10
+    slideMargin: 10,
+    centerMode: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
 };
 
 const Slider = ({ items, sliderRef }: SliderProps) => {
@@ -27,15 +30,15 @@ const Slider = ({ items, sliderRef }: SliderProps) => {
         <ReactSlider {...settings} ref={sliderRef}>
             {items.map(item => (
                 <li key={item.id} className="relative overflow-hidden">
-                    <img className="rounded-2xl" src={item.image} />
-                    <div className="overlay border-[#f1f1f1] border opacity-0 hover:opacity-100 rounded-2xl">
+                    <img className="rounded-md" src={item.image} />
+                    <div className="overlay border-[#f1f1f1] border opacity-0 hover:opacity-100 rounded-md">
                         <div>
                             <img src={star} className="w-[10px]"/>
                             <Subtitle>7.9</Subtitle>
                         </div>
                         <div>
                             <H3>{item.name}</H3>
-                            <WatchButton label='Watch Now'onClick={() => navigate(`/category/${item.id}/item/6`)} />
+                            <WatchButton label='Watch Now' onClick={() => navigate(`/category/${item.id}/item/6`)} />
                         </div>
                     </div>
                 </li>

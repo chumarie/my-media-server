@@ -10,6 +10,11 @@ body {
     height: 100%;
     overflow: hidden;
 }
+
 .slick-slide > div {
     margin: 0 10px 0 0; /* Ajustez la valeur de la marge en fonction de l'espace souhaité */
+}
+
+.slick-slider {
+    display: grid !important;
 }

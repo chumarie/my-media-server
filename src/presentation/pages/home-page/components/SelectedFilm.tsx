@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { httpAxios } from '@infrastructure/instances/httpAxios';
-import { Media } from '@domain/models/Media';
 import { mediaService } from '@application/services/MediaService';
+import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { mediaRepository } from '@infrastructure/repositories/mediaRepository';
-import { GenreTagList } from './GenreTagList';
-import H3 from '@presentation/atomic-design/atoms/typography/H3';
+import { Media } from '@domain/models/Media';
 import WatchButton from '@presentation/atomic-design/atoms/WatchButton';
-import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 export const SelectedFilm = () => {
     const [selectedFilm, setSelectedFilm] = useState<Media | null>(null);
@@ -17,7 +14,7 @@ export const SelectedFilm = () => {
 
     const getSeletedFilm = useCallback(async () => {
         try {
-            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaByTitle('Creed');
+            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaById('158');
             setSelectedFilm(responseFilm);
         } catch (exception) {
             console.error(exception);
@@ -28,20 +25,26 @@ export const SelectedFilm = () => {
         getSeletedFilm();
     }, []);
 
-    
+    if(!selectedFilm) {
+        return null;
+    }
+
+    const { backgroundImage, logo, production, tagline } = selectedFilm;
+
     return (
-        selectedFilm && (
-            <div className="p-5 mb-3 w-[300px] border-l">
-                <div className="relative">
-                    <img src={selectedFilm.image} className="rounded-2xl mb-5"/>
-                    <div className="overlay border-[#f1f1f1] border opacity-0 hover:opacity-100 rounded-2xl">
-                        <H2>{selectedFilm.name}</H2>
-                        <H3>{selectedFilm.description}</H3>
-                        <WatchButton onClick={() => navigate(`/category/${selectedFilm.id}/item/4`)} label='Watch Now'/>
+        <div className="flex w-full h-full bg-cover" style={{ backgroundImage: `url("${backgroundImage}")` }}>
+            <div className='w-full overlay'>
+                <div className="px-10 pb-[150px] h-full flex flex-col justify-center">
+                    <img className='w-[300px]' src={logo} />
+                    <div className="flex gap-3 mb-2">
+                        <span>{production}</span>
+                        <span>{tagline}</span>
+                    </div>
+                    <div className="flex gap-3 h-10">
+                    <WatchButton width="w-fit" className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/${selectedFilm.id}/item/4`)} label='Watch Now'/>
                     </div>
                 </div>
-                <GenreTagList/>
             </div>
-        )
+        </div>
     );
 };

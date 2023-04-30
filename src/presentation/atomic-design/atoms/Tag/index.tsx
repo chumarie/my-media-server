@@ -4,7 +4,7 @@ interface TagProps {
   
   const Tag = ({ label }: TagProps) => {
       return (
-          <button className="bg-rose-400 px-4 py-1 rounded-2xl">{label}</button>
+          <button className="bg-rose-400 px-4 py-1 rounded-md w-fit">{label}</button>
       );
   };
     

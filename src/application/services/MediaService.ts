@@ -1,8 +1,8 @@
 import { MediaRepository } from '@domain/repositories/MediaRepository';
 
 export const mediaService = (repository: MediaRepository): MediaRepository => ({
-    getMediaById: (id, parentId) => {
-        return repository.getMediaById(id, parentId);
+    getMediaById: (id) => {
+        return repository.getMediaById(id);
     },
     getMediaByTitle: (title) => {
         return repository.getMediaByTitle(title);

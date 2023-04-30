@@ -18,7 +18,7 @@ const DetailPage = () => {
             console.log('itemId', itemId)
             console.log('categoryId', categoryId)
             if(categoryId && itemId) {
-                const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(categoryId, itemId);
+                const responseMedia = await mediaService(mediaRepository(httpAxios)).getMediaById(categoryId);
                 setMedia(responseMedia);
             }
         } catch (exception) {
