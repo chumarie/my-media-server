@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
   timeout: 5000, // Temps d'attente en millisecondes avant d'abandonner la requête
   headers: {
     'Content-Type': 'application/json',
+    "x-requested-with": "XMLHttpRequest",
   },
 });
 
