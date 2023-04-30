@@ -1,6 +1,6 @@
-import { ProductDTO } from '@infrastructure/http/dto/ProductDTO';
 
-export const productListMock: ProductDTO[] = [
+
+export const productListMock: any[] = [
     {
         id: '1',
         title: 'Product 1',
