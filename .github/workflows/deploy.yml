@@ -8,6 +8,9 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+        env: # Ajoutez vos variables d'environnement ici
+          VITE_EMBY_SERVER_API_URL: ${{ secrets.VITE_EMBY_SERVER_API_URL }}
+          VITE_EMBY_SERVER_API_KEY: ${{ secrets.VITE_EMBY_SERVER_API_KEY }}
 
         steps:
             - name: Checkout repository
