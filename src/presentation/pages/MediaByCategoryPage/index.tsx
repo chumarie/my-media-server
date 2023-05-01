@@ -7,7 +7,7 @@ import { API_CATEGORY } from '@infrastructure/constants/global';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
-import MediaList from '@presentation/atomic-design/organisms/MediaList';
+import MediaList from '@presentation/atomic-design/organisms/MediaList/MediaList';
 import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 const MediaByCategoryPage = () => {

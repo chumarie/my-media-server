@@ -1,7 +1,7 @@
 import ReactSlider from 'react-slick';
 
 import { Category } from '@domain/models/Category';
-import MediaItem from '@presentation/atomic-design/molecules/MediaItem';
+import MediaItem from '@presentation/atomic-design/molecules/MediaItem/MediaItem';
 
 interface SliderProps {
     items: Category[] | [];

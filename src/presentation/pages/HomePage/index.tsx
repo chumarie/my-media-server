@@ -4,9 +4,9 @@ import { categoryService } from '@application/services/CategoryService';
 import { Category } from '@domain/models/Category';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
-import Slider from '@presentation/atomic-design/organisms/Slider';
-import ButtonWrapper from '@presentation/atomic-design/molecules/ButtonWrapper';
+import Slider from '@presentation/atomic-design/organisms/Slider/Slider';
 import BaseLayout from '@templates/BaseLayout/BaseLayout';
+import ButtonWrapper from '@presentation/atomic-design/molecules/ButtonWrapper/ButtonWrapper';
 
 import { SelectedFilm } from './components/SelectedFilm';
 

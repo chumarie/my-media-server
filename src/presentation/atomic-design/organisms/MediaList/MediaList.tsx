@@ -1,4 +1,4 @@
-import MediaItem from '@presentation/atomic-design/molecules/MediaItem';
+import MediaItem from '@presentation/atomic-design/molecules/MediaItem/MediaItem';
 
 interface MediaListProps {
     items: Array<{ id: string; image: string; name: string }>;

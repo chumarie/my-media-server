@@ -8,7 +8,7 @@ import { Media } from '@domain/models/Media';
 import { mediaRepository } from '@infrastructure/repositories/mediaRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
-import Tag from '@presentation/atomic-design/atoms/Tag';
+import Tag from '@presentation/atomic-design/atoms/Tag/Tag';
 
 const DetailPage = () => {
     const { categoryId, itemId } = useParams();

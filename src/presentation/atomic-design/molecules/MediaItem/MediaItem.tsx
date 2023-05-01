@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import star from '@presentation/assets/star.png';
 import H3 from '@presentation/atomic-design/atoms/typography/H3';
 import Subtitle from '@presentation/atomic-design/atoms/typography/Subtitle';
-import WatchButton from '@presentation/atomic-design/atoms/WatchButton';
+import WatchButton from '@presentation/atomic-design/atoms/WatchButton/WatchButton';
 
 interface MediaItemProps {
     id: string;

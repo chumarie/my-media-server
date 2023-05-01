@@ -4,7 +4,7 @@ import { Genre } from '@domain/models/Genre';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import { genreService } from '@application/services/GenreService';
 import { genreRepository } from '@infrastructure/repositories/genreRepository';
-import Tag from '@presentation/atomic-design/atoms/Tag';
+import Tag from '@presentation/atomic-design/atoms/Tag/Tag';
 
 export const GenreTagList = () => {
     const [genres, setGenres] = useState<Genre[]>([]);
@@ -23,12 +23,10 @@ export const GenreTagList = () => {
     }, []);
 
     return (
-        <div className='category-list-'>
-            <div className='flex flex-wrap gap-3'>
-                {genres.slice(0, 8).map(genre => (
-                    <Tag label={genre.name} />
-                ))}
-            </div>
+        <div className='flex flex-wrap gap-3'>
+            {genres.slice(0, 8).map(genre => (
+                <Tag label={genre.name} />
+            ))}
         </div>
     );
 };

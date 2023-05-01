@@ -6,7 +6,7 @@ import { Category } from '@domain/models/Category';
 import { categoryRepository } from '@infrastructure/repositories/categoryRepository';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
 import avatar from '@presentation/assets/avatar.jpeg';
-import Logo from '@presentation/atomic-design/atoms/Logo';
+import Logo from '@presentation/atomic-design/atoms/Logo/Logo';
 
 const Header = () => {
     const [categories, setCategories] = useState<Category[] | null>();
