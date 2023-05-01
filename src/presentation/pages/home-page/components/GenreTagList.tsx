@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Genre } from '@domain/models/Genre';
 import { httpAxios } from '@infrastructure/instances/httpAxios';
@@ -23,10 +22,9 @@ export const GenreTagList = () => {
         getGenres();
     }, []);
 
-    
     return (
-        <div className="category-list-">
-            <div className="flex flex-wrap gap-3">
+        <div className='category-list-'>
+            <div className='flex flex-wrap gap-3'>
                 {genres.slice(0, 8).map(genre => (
                     <Tag label={genre.name} />
                 ))}

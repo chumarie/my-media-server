@@ -1,7 +1,6 @@
 import { Http } from '@domain/repositories/Http';
 import axiosInstance from '@infrastructure/config/axios';
 
-
 const headers = {
     'Content-Type': 'application/json'
 };

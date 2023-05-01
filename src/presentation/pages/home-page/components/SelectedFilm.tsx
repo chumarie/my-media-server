@@ -25,23 +25,29 @@ export const SelectedFilm = () => {
         getSeletedFilm();
     }, []);
 
-    if(!selectedFilm) {
+    if (!selectedFilm) {
         return null;
     }
 
     const { backgroundImage, logo, production, tagline } = selectedFilm;
 
     return (
-        <div className="flex w-full h-full bg-cover" style={{ backgroundImage: `url("${backgroundImage}")` }}>
+        <div className='flex w-full h-full bg-cover' style={{ backgroundImage: `url("${backgroundImage}")` }}>
             <div className='w-full overlay'>
-                <div className="px-10 pb-[150px] h-full flex flex-col justify-center">
+                <div className='px-10 pb-[150px] h-full flex flex-col justify-center'>
                     <img className='w-[300px]' src={logo} />
-                    <div className="flex gap-3 mb-4">
+                    <div className='flex gap-3 mb-4'>
                         <span>{production}</span>
                         <span>{tagline}</span>
                     </div>
-                    <div className="flex gap-3 h-10">
-                    <WatchButton width="w-fit" hasIcon={true} className="bg-gradient-to-r from-pink-500 to-bg[#ff0068]" onClick={() => navigate(`/category/4/item/${selectedFilm.id}`)} label='Watch Now'/>
+                    <div className='flex gap-3 h-10'>
+                        <WatchButton
+                            width='w-fit'
+                            hasIcon={true}
+                            className='bg-gradient-to-r from-pink-500 to-bg[#ff0068]'
+                            onClick={() => navigate(`/category/4/item/${selectedFilm.id}`)}
+                            label='Watch Now'
+                        />
                     </div>
                 </div>
             </div>

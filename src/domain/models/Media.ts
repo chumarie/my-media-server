@@ -12,4 +12,3 @@ export type Media = {
     studio: any;
     thumb: string;
 };
-

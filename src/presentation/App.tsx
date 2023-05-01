@@ -6,11 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import './styles/tailwind.css';
 
-
 const App = () => {
-    return (
-        <AppRoutes  />
-    );
+    return <AppRoutes />;
 };
 
 export default App;

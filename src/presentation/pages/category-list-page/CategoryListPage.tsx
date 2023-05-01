@@ -12,11 +12,11 @@ import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
 const CategoryListPage = () => {
     const { categoryId } = useParams<string>();
-    const [mediaList, setMediaList] =  useState<Category[] | null>(null);
+    const [mediaList, setMediaList] = useState<Category[] | null>(null);
 
     const getCategoryList = useCallback(async (categoryId: string | undefined) => {
         try {
-            if(categoryId) {
+            if (categoryId) {
                 const responseMedia = await categoryService(categoryRepository(httpAxios)).getCategoryById(categoryId);
                 setMediaList(responseMedia);
             }
@@ -29,16 +29,16 @@ const CategoryListPage = () => {
         getCategoryList(categoryId);
     }, [categoryId]);
 
-    if(!mediaList || !categoryId) {
+    if (!mediaList || !categoryId) {
         return null;
     }
 
     const sectionTitle = API_CATEGORY[categoryId].label;
 
     return (
-        <BaseLayout>      
-            <div className="w-full flex px-5 pt-[100px] pb-5 flex-col">
-                <div className="flex justify-center">
+        <BaseLayout>
+            <div className='w-full flex px-5 pt-[100px] pb-5 flex-col'>
+                <div className='flex justify-center'>
                     <H2>{sectionTitle}</H2>
                 </div>
                 <MediaList items={mediaList} />

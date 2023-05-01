@@ -9,5 +9,5 @@ export const categoryService = (repository: CategoryRepository): CategoryReposit
     },
     getResumes: () => {
         return repository.getResumes();
-    },
+    }
 });

@@ -11,49 +11,45 @@ import BaseLayout from '@templates/BaseLayout/BaseLayout';
 import { SelectedFilm } from './components/SelectedFilm';
 
 const HomePage = () => {
-  const [movieList, setMovieList] =  useState<Category[]>([]);
+    const [movieList, setMovieList] = useState<Category[]>([]);
 
-  const sliderMovieRef = useRef<any>(null);
+    const sliderMovieRef = useRef<any>(null);
 
-  const handleMoviePrevButtonClick = () => {
-      sliderMovieRef.current.slickPrev();
-   };
-    
-  const handleMovieNextButtonClick = () => {
-    sliderMovieRef.current.slickNext();
-  };
+    const handleMoviePrevButtonClick = () => {
+        sliderMovieRef.current.slickPrev();
+    };
 
-  const getDataList = useCallback(async () => {
-      try {
-        const responseMovies = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
-        setMovieList(responseMovies);
-          
-      } catch (exception) {
-          console.error(exception);
-      }
-  }, []);
+    const handleMovieNextButtonClick = () => {
+        sliderMovieRef.current.slickNext();
+    };
 
-  useEffect(() => {
-    getDataList();
-  }, []);
+    const getDataList = useCallback(async () => {
+        try {
+            const responseMovies = await categoryService(categoryRepository(httpAxios)).getCategoryById('4');
+            setMovieList(responseMovies);
+        } catch (exception) {
+            console.error(exception);
+        }
+    }, []);
 
-  console.log('HomePagee');
+    useEffect(() => {
+        getDataList();
+    }, []);
 
     return (
         <BaseLayout>
-          <div className="w-full flex">
-            <div className="flex-1">
-                <SelectedFilm />
-              <div className="absolute bottom-[0px] z-10 px-5">
-                <div className="section-heading flex justify-between py-5 px-0 items-center">
-                  <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
+            <div className='w-full flex'>
+                <div className='flex-1'>
+                    <SelectedFilm />
+                    <div className='absolute bottom-[0px] z-10 px-5'>
+                        <div className='section-heading flex justify-between py-5 px-0 items-center'>
+                            <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
+                        </div>
+                        <Slider sliderRef={sliderMovieRef} items={movieList} />
+                    </div>
                 </div>
-                <Slider sliderRef={sliderMovieRef} items={movieList} />
-              </div>
-            </div> 
-          </div>
+            </div>
         </BaseLayout>
-
     );
 };
 

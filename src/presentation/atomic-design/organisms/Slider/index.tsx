@@ -7,7 +7,7 @@ interface SliderProps {
     items: Category[] | [];
     sliderRef: any;
 }
-  
+
 const settings = {
     speed: 500,
     arrows: false,
@@ -20,24 +20,24 @@ const settings = {
     pauseOnHover: true,
     responsive: [
         {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 7,
-          }
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 7
+            }
         },
         {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 3,
-          }
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3
+            }
         },
         {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 2,
-          }
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2
+            }
         }
-      ]
+    ]
 };
 
 const Slider = ({ items, sliderRef }: SliderProps) => {
@@ -48,6 +48,6 @@ const Slider = ({ items, sliderRef }: SliderProps) => {
             ))}
         </ReactSlider>
     );
-  };
-  
-  export default Slider;
+};
+
+export default Slider;
