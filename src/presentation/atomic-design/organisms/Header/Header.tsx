@@ -43,7 +43,11 @@ const Header = () => {
                         {categories.map(
                             category =>
                                 category.type === 'movies' && (
-                                    <li key={category.id} className='cursor-pointer' onClick={() => navigate(`/category/${category.id}`)}>
+                                    <li
+                                        key={category.id}
+                                        className='cursor-pointer hover:text-pink-500'
+                                        onClick={() => navigate(`/category/${category.id}`)}
+                                    >
                                         {category.name}
                                     </li>
                                 )
@@ -51,7 +55,7 @@ const Header = () => {
                     </ul>
                 </nav>
             </div>
-            <div className='flex-1 flex justify-end gap-4 items-center'>
+            <div className='flex-1 flex justify-end gap-4 items-center hidden md:flex'>
                 <img className='h-[40px] rounded-full' src={avatar} alt='avatar-profile' />
             </div>
         </header>

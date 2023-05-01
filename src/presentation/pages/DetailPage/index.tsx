@@ -39,10 +39,10 @@ const DetailPage = () => {
             <div className='w-full flex'>
                 <div className='flex-1 w-full h-full bg-cover' style={{ backgroundImage: `url("${backgroundImage}")` }}>
                     <div className='overlay'></div>
-                    <div className='px-[120px] py-[55px] h-full z-10 relative flex gap-10 items-center'>
-                        <div className='w-[60%]'>
-                            <img src={logo} className='w-[400px] mb-6' />
-                            <div className='w-[80%] text-ellipsis overflow-scroll max-h-[100px] mb-5'>{description}</div>
+                    <div className='md:px-[120px] px-[30px] pb-[40px] pt-[150px] md:py-[85px] h-full z-10 relative flex gap-10 items-center flex-col md:flex-row justify-center'>
+                        <div className='md:w-[60%]'>
+                            <img src={logo} className='w-[200px] md:w-[400px] mb-6' />
+                            <div className='md:w-[80%] text-ellipsis overflow-scroll max-h-[100px] mb-5'>{description}</div>
                             <div className='flex gap-3 mb-6'>
                                 {genres.map(genre => (
                                     <Tag label={genre} />
@@ -54,7 +54,7 @@ const DetailPage = () => {
                                 </h3>
                             </div>
                         </div>
-                        <div className='flex-1 h-[300px]'>
+                        <div className='w-full md:flex-1 md:h-[300px]'>
                             <Player playsInline poster={thumb} src={videoUrl} />
                         </div>
                     </div>

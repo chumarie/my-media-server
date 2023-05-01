@@ -14,7 +14,6 @@ const settings = {
     infinite: true,
     slidesToShow: 7,
     slideMargin: 10,
-    centerMode: true,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
@@ -22,7 +21,7 @@ const settings = {
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 7
+                slidesToShow: 6
             }
         },
         {

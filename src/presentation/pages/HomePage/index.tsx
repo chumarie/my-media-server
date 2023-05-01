@@ -41,7 +41,7 @@ const HomePage = () => {
             <div className='w-full flex'>
                 <div className='flex-1'>
                     <SelectedFilm />
-                    <div className='absolute bottom-[0px] z-10 px-5'>
+                    <div className='absolute bottom-[20px] z-10 px-5'>
                         <div className='section-heading flex justify-between py-5 px-0 items-center'>
                             <ButtonWrapper onPrevButtonClick={handleMoviePrevButtonClick} onNextButtonClick={handleMovieNextButtonClick} />
                         </div>

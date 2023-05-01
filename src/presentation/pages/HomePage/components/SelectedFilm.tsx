@@ -29,10 +29,10 @@ export const SelectedFilm = () => {
         return null;
     }
 
-    const { backgroundImage, logo, production, tagline } = selectedFilm;
+    const { logo, production, tagline } = selectedFilm;
 
     return (
-        <div className='flex w-full h-full bg-cover' style={{ backgroundImage: `url("${backgroundImage}")` }}>
+        <div className='flex w-full h-full bg-cover bg-[url("http://116.109.188.193:8096/emby//emby/Items/9927/Images/Primary?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6")] lg:bg-[url("http://116.109.188.193:8096/emby/Items/9927/Images/Backdrop?api_key=020eed90ed7e4b3f95d73dc3ed8f11b6")]'>
             <div className='w-full overlay'>
                 <div className='px-10 pb-[150px] h-full flex flex-col justify-center'>
                     <img className='w-[300px]' src={logo} />
