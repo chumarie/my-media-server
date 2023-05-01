@@ -37,6 +37,8 @@ const HomePage = () => {
     getDataList();
   }, []);
 
+  console.log('HomePagee');
+
     return (
         <BaseLayout>
           <div className="w-full flex">
