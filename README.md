@@ -10,10 +10,9 @@
     <br />
     <a href="http://tekflix.marie-chu.com/">View Demo</a>
   </p>
-    <a href="https://gyazo.com/e804d36a5904c3c188958f44ffaab6d7">
-        <img src="https://i.gyazo.com/e804d36a5904c3c188958f44ffaab6d7.gif" alt="Image from Gyazo" width="1000"/>
-    </a>
 </div>
+
+[![Image from Gyazo](https://i.gyazo.com/e804d36a5904c3c188958f44ffaab6d7.gif)](https://gyazo.com/e804d36a5904c3c188958f44ffaab6d7)
 
 <!-- TABLE OF CONTENTS -->
 <details>
