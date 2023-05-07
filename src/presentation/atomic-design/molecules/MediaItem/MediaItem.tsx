@@ -11,6 +11,12 @@ interface MediaItemProps {
     name: string;
 }
 
+/**
+ * MediaItem component
+ * @param id - the ID of the media item
+ * @param image - the URL of the image to be displayed
+ * @param name - the name of the media item
+ */
 const MediaItem = ({ id, image, name }: MediaItemProps) => {
     const navigate = useNavigate();
 

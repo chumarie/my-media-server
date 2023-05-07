@@ -4,6 +4,10 @@ interface LogoProps {
     onLogoClick: (event: MouseEvent<HTMLDivElement> | undefined) => void;
 }
 
+/**
+ * Logo component that displays a clickable logo image
+ * @param onLogoClick - function to be called when the logo is clicked
+ */
 const Logo = ({ onLogoClick }: LogoProps) => {
     return (
         <div onClick={onLogoClick} className='w-sidebar flex'>

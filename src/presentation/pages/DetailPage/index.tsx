@@ -10,6 +10,9 @@ import { httpAxios } from '@infrastructure/instances/httpAxios';
 import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLayout';
 import Tag from '@presentation/atomic-design/atoms/Tag/Tag';
 
+/**
+ * DetailPage component that displays detailed information about a media item
+ */
 const DetailPage = () => {
     const { categoryId, itemId } = useParams();
     const [media, setMedia] = useState<Media | null>(null);

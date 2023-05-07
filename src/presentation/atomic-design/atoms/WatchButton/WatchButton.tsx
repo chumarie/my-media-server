@@ -12,12 +12,20 @@ interface WatchButtonProps {
     width?: string;
 }
 
+/**
+ * WatchButton component that displays a button
+ * @param label - the label to be displayed on the button
+ * @param onClick - function to be called when the button is clicked
+ * @param width - the width of the button
+ * @param className - additional class names to be applied to the button
+ * @param hasIcon - boolean to know if display icon image
+ */
 const WatchButton = ({ label, onClick, width, className, hasIcon = false }: WatchButtonProps) => {
     return (
         <button
             onClick={onClick}
             className={clsx(
-                `bg-[#ff0068] sm:text-base text-xs px-4 py-2 flex justify-center items-center gap-3 rounded-md`,
+                `bg-[#ff0068] sm:text-base text-xs px-4 py-2 flex justify-center items-center gap-3 rounded-md ease-[transform(0.68, -0.6, 0.32, 1.6)] hover:brightness-125`,
                 width || 'w-full',
                 className
             )}

@@ -55,7 +55,7 @@ const Header = () => {
                     </ul>
                 </nav>
             </div>
-            <div className='flex-1 flex justify-end gap-4 items-center hidden md:flex'>
+            <div className='flex-1 flex justify-end gap-4 items-center hidden'>
                 <img className='h-[40px] rounded-full' src={avatar} alt='avatar-profile' />
             </div>
         </header>

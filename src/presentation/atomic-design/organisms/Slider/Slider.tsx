@@ -39,11 +39,16 @@ const settings = {
     ]
 };
 
+/**
+ * Slider component that displays a slider of MediaItems
+ * @param items - an array of MediaItems to be displayed in the slider
+ * @param sliderRef - a reference to the ReactSlider component
+ */
 const Slider = ({ items, sliderRef }: SliderProps) => {
     return (
         <ReactSlider {...settings} ref={sliderRef}>
             {items.map(item => (
-                <MediaItem id={item.id} image={item.image} name={item.name} />
+                <MediaItem key={item.id} id={item.id} image={item.image} name={item.name} />
             ))}
         </ReactSlider>
     );

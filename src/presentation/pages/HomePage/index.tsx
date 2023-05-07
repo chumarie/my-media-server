@@ -10,6 +10,9 @@ import ButtonWrapper from '@presentation/atomic-design/molecules/ButtonWrapper/B
 
 import { SelectedFilm } from './components/SelectedFilm';
 
+/**
+ * HomePage component
+ */
 const HomePage = () => {
     const [movieList, setMovieList] = useState<Category[]>([]);
 

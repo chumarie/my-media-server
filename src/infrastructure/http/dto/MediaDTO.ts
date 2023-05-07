@@ -1,3 +1,6 @@
+/**
+ * Represents a DTO for a media item.
+ */
 export interface MediaDTO {
     Id: string;
     Name: string;

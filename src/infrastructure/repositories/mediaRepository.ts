@@ -28,7 +28,7 @@ export const mediaRepository = (client: Http): MediaRepository => ({
             logo: `${EMBY_API_URL}/emby/Items/${id}/Images/Logo?api_key=${EMBY_API_KEY}`,
             image: `${EMBY_API_URL}/emby/Items/${id}/Images/Primary?api_key=${EMBY_API_KEY}`,
             backgroundImage: `${EMBY_API_URL}/emby/Items/${id}/Images/Backdrop?api_key=${EMBY_API_KEY}`,
-            videoUrl: `${EMBY_API_URL}Videos/${id}/stream?static=true&allowVideoStreamCopy=true&api_key=${EMBY_API_KEY}`
+            videoUrl: `${EMBY_API_URL}Videos/${id}/stream?static=true&api_key=${EMBY_API_KEY}`
         };
     },
 
@@ -58,7 +58,7 @@ export const mediaRepository = (client: Http): MediaRepository => ({
             logo: `${EMBY_API_URL}/emby/Items/${item}/Images/Logo?api_key=${EMBY_API_KEY}`,
             image: `${EMBY_API_URL}/emby/Items/${item.Id}/Images/Primary?api_key=${EMBY_API_KEY}`,
             backgroundImage: `${EMBY_API_URL}/emby/Items/${item.Id}/Images/Backdrop?api_key=${EMBY_API_KEY}`,
-            videoUrl: `${EMBY_API_URL}/Videos/${item.Id}/stream?static=true&allowVideoStreamCopy=true&api_key=${EMBY_API_KEY}`
+            videoUrl: `${EMBY_API_URL}/Videos/${item.Id}/stream?static=true&&api_key=${EMBY_API_KEY}`
         };
     }
 });

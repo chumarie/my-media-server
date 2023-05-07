@@ -10,6 +10,9 @@ import BaseLayout from '@presentation/atomic-design/templates/BaseLayout/BaseLay
 import MediaList from '@presentation/atomic-design/organisms/MediaList/MediaList';
 import H2 from '@presentation/atomic-design/atoms/typography/H2';
 
+/**
+ * MediaByCategoryPage component
+ */
 const MediaByCategoryPage = () => {
     const { categoryId } = useParams<string>();
     const [mediaList, setMediaList] = useState<Category[] | null>(null);

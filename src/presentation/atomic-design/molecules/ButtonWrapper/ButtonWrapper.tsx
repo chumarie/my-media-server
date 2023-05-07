@@ -8,6 +8,11 @@ interface ButtonWrapperProps {
     onNextButtonClick?: (event: SyntheticEvent<HTMLImageElement>) => void;
 }
 
+/**
+ * ButtonWrapper component that displays two buttons for navigating between items
+ * @param onPrevButtonClick - function to be called when the previous button is clicked
+ * @param onNextButtonClick - function to be called when the next button is clicked
+ */
 const ButtonWrapper = ({ onPrevButtonClick, onNextButtonClick }: ButtonWrapperProps) => {
     return (
         <div className='flex justify-between w-full h-[15px]'>

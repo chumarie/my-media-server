@@ -5,6 +5,9 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
+/**
+ * An HTTP client implementation using Axios.
+ */
 export const httpAxios: Http = {
     get: async <T>(path: string, params?: Record<string, any>, config?: any) => {
         const response = await axiosInstance.get(path, { ...config, params: params, headers });
