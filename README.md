@@ -1,3 +1,5 @@
+[![Image from Gyazo](https://i.gyazo.com/e804d36a5904c3c188958f44ffaab6d7.gif)](https://gyazo.com/e804d36a5904c3c188958f44ffaab6d7)
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -11,8 +13,6 @@
     <a href="http://tekflix.marie-chu.com/">View Demo</a>
   </p>
 </div>
-
-[![Image from Gyazo](https://i.gyazo.com/e804d36a5904c3c188958f44ffaab6d7.gif)](https://gyazo.com/e804d36a5904c3c188958f44ffaab6d7)
 
 <!-- TABLE OF CONTENTS -->
 <details>
