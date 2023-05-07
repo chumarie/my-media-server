@@ -1,7 +1,8 @@
 <!-- PROJECT LOGO -->
+<br />
 <div align="center">
   <a href="http://tekflix.marie-chu.com/">
-    <img src="https://i.ibb.co/Jvz8d9Z/tekflix-1.png" alt="Logo" width="80" height="80">
+    <img src="https://i.ibb.co/Jvz8d9Z/tekflix-1.png" alt="Logo" width="200">
   </a>
   <p align="center">
     Media server with Emby API
@@ -9,6 +10,9 @@
     <br />
     <a href="http://tekflix.marie-chu.com/">View Demo</a>
   </p>
+  <div>
+    <img src="https://i.gyazo.com/1e77ee521fa02cf76b0135fb62a98d32.mp4" alt="gif" width="600">
+  </div>
 </div>
 
 <!-- TABLE OF CONTENTS -->
