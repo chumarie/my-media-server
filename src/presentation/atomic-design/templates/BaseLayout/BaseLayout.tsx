@@ -11,9 +11,8 @@ interface LayoutProps {
 const BaseLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div className='h-full flex flex-col'>
-            <Header /> {/* Organisme contenant la barre de navigation, le logo, etc. */}
-            <main className='flex-auto h-[calc(100%-130px)]'>{children}</main> {/* Contenu principal de la page */}
-            {/* <Footer /> Organisme contenant les liens et les informations de copyright */}
+            <Header />
+            <main className='flex-auto h-[calc(100%-130px)]'>{children}</main>
         </div>
     );
 };
