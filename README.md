@@ -35,15 +35,15 @@
 </details>
 
 
-
+ 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-TEKFLIX is a media server client that is directly connected to your EMBY server. The project was carried out with the goal of achieving a modular design while adhering to the hexagonal architecture.
+TEKFLIX is a media server client directly connected to your EMBY server. The goal of this project is to structure the frontend with a hexagonal architecture.
 
 ### Built With
 
-* [![React][React.js]][React-url]
+* [![React](https://img.shields.io/badge/react-%2361DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
 * [![Tailwind CSS](https://img.shields.io/badge/tailwind-css-%2338B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 * [![Vite.js](https://img.shields.io/badge/vite.js-%23649EFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 * [![Emby API](https://img.shields.io/badge/Emby_API-%234782C2?style=for-the-badge&logoColor=white)](https://emby.media/)
@@ -66,10 +66,10 @@ TEKFLIX is a media server client that is directly connected to your EMBY server.
    ```sh
    npm install
    ```
-3. Edit yout`.env.local` into `.env` with yout emby config
+3. Edit your `.env.local` into `.env` with your personal emby config
    ```js
    const VITE_EMBY_SERVER_API_URL = 'ENTER YOUR API URL';
-   const VITE_EMBY_SERVER_API_KEY = 'ENTER YOUR API KEY.env.local';
+   const VITE_EMBY_SERVER_API_KEY = 'ENTER YOUR API KEY';
    ```
 
 <!-- USAGE EXAMPLES -->
