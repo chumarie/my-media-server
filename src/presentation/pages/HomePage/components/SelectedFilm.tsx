@@ -13,10 +13,11 @@ export const SelectedFilm = () => {
     const [selectedFilm, setSelectedFilm] = useState<Media | null>(null);
 
     const navigate = useNavigate();
+    const selectedFilmId = '9927';
 
     const getSeletedFilm = useCallback(async () => {
         try {
-            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaById('9927');
+            const responseFilm = await mediaService(mediaRepository(httpAxios)).getMediaById(selectedFilmId);
             setSelectedFilm(responseFilm);
         } catch (exception) {
             console.error(exception);

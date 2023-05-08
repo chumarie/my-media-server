@@ -66,7 +66,7 @@ TEKFLIX is a media server client directly connected to your EMBY server. The goa
    ```sh
    npm install
    ```
-3. Edit your `.env.local` into `.env` with your personal emby config
+3. Edit your `.env.example` into `.env` with your personal emby config
    ```js
    const VITE_EMBY_SERVER_API_URL = 'ENTER YOUR API URL';
    const VITE_EMBY_SERVER_API_KEY = 'ENTER YOUR API KEY';

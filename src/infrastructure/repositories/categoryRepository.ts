@@ -15,8 +15,8 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
      * @returns an array of Category objects
      */
     getCategories: async () => {
-        const medias = await client.get<CategoryDTO>('Library/MediaFolders');
-        return medias.Items.map((categoryDto: CategoryDTO): Category => {
+        const categories = await client.get<CategoryDTO>('Library/MediaFolders');
+        return categories.Items.map((categoryDto: CategoryDTO): Category => {
             return {
                 id: categoryDto.Id,
                 name: categoryDto.Name,
@@ -32,8 +32,8 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
      * @returns an array of Category objects
      */
     getCategoryById: async id => {
-        const medias = await client.get<CategoryDTO>(`Users/${EMBY_USER_ID}/Items`, { ParentId: id });
-        return medias.Items.map(
+        const category = await client.get<CategoryDTO>(`Users/${EMBY_USER_ID}/Items`, { ParentId: id });
+        return category.Items.map(
             (categoryDto: CategoryDTO): Category => ({
                 id: categoryDto.Id,
                 name: categoryDto.Name,
@@ -48,10 +48,10 @@ export const categoryRepository = (client: Http): CategoryRepository => ({
      * @returns an array of Category objects
      */
     getResumes: async () => {
-        const medias = await client.get<CategoryDTO>(`Users/${EMBY_USER_ID}/Items/Resume`, {
+        const resumes = await client.get<CategoryDTO>(`Users/${EMBY_USER_ID}/Items/Resume`, {
             EnableImageTypes: 'Backdrop'
         });
-        return medias.Items.map((categoryDto: CategoryDTO): Category => {
+        return resumes.Items.map((categoryDto: CategoryDTO): Category => {
             return {
                 id: categoryDto.Id,
                 name: categoryDto.Name,
